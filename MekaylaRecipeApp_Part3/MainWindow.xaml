@@ -1,0 +1,58 @@
+﻿<Window x:Class="MekaylaRecipeApp_Part3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe Application" Height="900" Width="800">
+   
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Recipe Filter Section -->
+            <StackPanel Grid.Row="0" Margin="10">
+                <TextBlock Text="Recipe Filters" FontSize="16" FontWeight="Bold" Margin="0 0 0 10"/>
+
+                <!-- Filter by Ingredient -->
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Text="Ingredient:" VerticalAlignment="Center"/>
+                    <TextBox x:Name="ingredientTextBox" Width="200"/>
+                </StackPanel>
+
+                <!-- Filter by Food Group -->
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Text="Food Group:" VerticalAlignment="Center"/>
+                    <ComboBox x:Name="foodGroupComboBox" Width="200">
+                        <!-- Populate food groups from a collection or enum -->
+                    </ComboBox>
+                </StackPanel>
+
+                <!-- Filter by Maximum Calories -->
+                <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                    <TextBlock Text="Max Calories:" VerticalAlignment="Center"/>
+                    <TextBox x:Name="maxCaloriesTextBox" Width="100" Margin="10 0 0 0"/>
+                </StackPanel>
+
+                <Button Content="Apply Filters" Click="ApplyFiltersButton_Click"/>
+                <Button Content="Clear Filters" Click="ClearFiltersButton_Click" Margin="0 10 0 0"/>
+            </StackPanel>
+
+            <!-- Recipe List Section -->
+            <StackPanel Grid.Row="1" Margin="10">
+                <TextBlock Text="Recipe List" FontSize="16" FontWeight="Bold" Margin="0 0 0 10"/>
+                <ListBox x:Name="recipeListBox" Width="200" Height="200" DisplayMemberPath="Name" SelectionChanged="RecipeListBox_SelectionChanged"/>
+                <Button Content="Add Recipe" Click="AddRecipeButton_Click" Margin="0 10 0 0"/>
+                <Button Content="Delete Recipe" Click="DeleteRecipeButton_Click" Margin="0 10 0 0"/>
+            </StackPanel>
+
+            <!-- Recipe Details Section -->
+            <StackPanel Grid.Row="1" Margin="10,309,10,-289">
+                <TextBlock Text="Recipe Details" FontSize="16" FontWeight="Bold" Margin="0 0 0 10"/>
+                <TextBlock x:Name="recipeNameTextBlock" FontSize="14" FontWeight="Bold" Margin="0 0 0 5"/>
+                <TextBlock Text="Ingredients:" FontSize="14" FontWeight="Bold" Margin="0 0 0 5"/>
+                <ListBox x:Name="ingredientsListBox" Width="200" Height="100" DisplayMemberPath="ToString"/>
+                <TextBlock Text="Steps:" FontSize="14" FontWeight="Bold" Margin="0 10 0 5"/>
+                <ListBox x:Name="stepsListBox" Width="200" Height="100" DisplayMemberPath="ToString"/>
+            </StackPanel>
+        </Grid>
+    </Window>
